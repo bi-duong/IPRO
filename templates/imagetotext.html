@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block content %}
+  {{ dropzone.load_css() }}
+  {{ dropzone.style('border: 5px dashed #0087F7; margin: 10%; min-height: 200px;') }}
+<div class="d-flex justify-content-center mt-4">
+    <a href="{{ url_for('uploadimgtext') }}" class="btn btn-outline-success m-2">Image To Text</a>
+    <a href="{{ url_for('uploadimgtext') }}" class="btn btn-outline-danger m-2">Image To Audio</a>
+</div>
+
+
+{% endblock %}

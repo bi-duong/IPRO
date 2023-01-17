@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="container-fluid">
+               <div class="row page-titles">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item active"><a href="javascript:void(0)">Language is</a></li>
+						<li class="breadcrumb-item"><a href="javascript:void(0)">{{ lang }}</a></li>
+					</ol>
+                </div>
+     <h4 class="card-title">Generate QRCode</h4>
+
+<div class="mt-4">
+    <div class="card card-style mb-2">
+        <div class="card-body justify-content-center">
+
+            <form action="" method="POST">
+                {{ form.csrf_token() }}
+                <fieldset class="form-group">
+                    <legend class="mb-4"></legend>
+                    <div class="form-group" >
+                        {{ form.data_field.label(class="form-control-label") }}
+                        {% if form.data_field.errors %}
+                            {{ form.data_field(class="form-control form-control-sm is-invalid") }}
+                        {% for error in form.data_field.errors %}
+                        <div class="invalid-feedback" >
+                            <span>{{error}}</span>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                            {{ form.data_field(class="form-control form-control-sm", style="height:50vh") }}
+                        {% endif %}
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group mb-3">
+
+											<div class="btn btn-primary">
+												{{ form.language(class="custom-select",style="font-size:15px;") }}
+											</div>
+                                            <label class=" form-control" style="font-size:15px;color:black;">Language To Translate To</label>
+                                        </div>
+                    <center><div class="form-group border-bottom pb-3 mt-4">
+                        {{ form.submit(class="btn btn-outline-info" )}}
+                    </div></center>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if audio %}
+    <div class="d-flex justify-content-center mt-4">
+        <audio controls autoplay class="m-auto">
+            <source src="horse.ogg" type="audio/ogg">
+            <source src="{{ url_for('static', filename='audio_files/' + file) }}" type="audio/mpeg">
+            Your browser does not support the audio.
+        </audio>
+    </div>
+{% endif %}
+</div>
+<script>
+    document.getElementById("submit").addEventListener("click", function () {
+        swal({
+            title: "File upload in process",
+            text: "Please wait... this can take sometime",
+            icon: "success",
+            button: "Okay",
+        });
+    });
+</script>
+
+{% endblock %}
+

@@ -1,0 +1,117 @@
+{% extends 'layout.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cropstyle.css') }}">
+<div class="container-fluid ">
+               <div class="row page-titles">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item active"><a href="javascript:void(0)">Crop</a></li>
+						<li class="breadcrumb-item"><a href="javascript:void(0)">Select Picture</a></li>
+					</ol>
+                </div>
+	<div class="row">
+		<div class="col-lg-4 col-xl-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row m-b-30">
+                                  <p>
+							Size:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+							<input type="number" name="widthBox" id="widthInput" title="Width" style ="border-radius: 15px;border-color:pink">
+							×
+							<input type="number" name="heightBox" id="heightInput" title="Height"style ="border-radius: 15px;border-color:pink">
+
+							<i style="color: white;">_</i><br><br>
+
+							Position:
+							<input type="number" name="leftBox" id="xInput" value="0" min="0" title="X" style ="border-radius: 15px;border-color:pink">
+									  x
+							<input type="number" name="topBox" id="yInput" value="0" min="0" title="Y" style ="border-radius: 15px;border-color:pink">
+
+							<i style="color: white;">_</i><br><br>
+
+							Parts:&nbsp&nbsp&nbsp&nbsp
+							<input type="number" name="widthBox" id="xParts" title="Horizontal parts" style ="border-radius: 15px;border-color:pink">
+							×
+							<input type="number" name="heightBox" id="yParts" title="Vertical parts" style ="border-radius: 15px;border-color:pink">
+
+							<i style="color: white;">_</i><br><br>
+
+							Opacity: <input id="opacityInput" type="range" min="0" max="1" step="0.01" title="Outside opacity">
+						</p>
+<input id="fileInput" type="file" accept="image/*,image/jpeg" class="btn form-file-input form-control">
+						<a id="saveBtn" href="#" type="button" class="btn btn-primary">Save</a>
+
+                                </div>
+                            </div>
+                        </div>
+					</div>
+		<div class="col-lg-8 col-xl-8">
+                        <div class="row d-flex justify-content-center">
+
+
+				<div class="img-container">
+					<canvas id="canvas"></canvas>
+					<img id="img" class="edit-img" src="{{ url_for('static', filename='images/person.png') }}" alt="" class="img-fluid" alt="Uploaded image">
+				</div>
+			</div>
+						</div>
+					</div>
+	</div>
+</div>
+
+
+
+<!--<div class="container-fluid vh-100 d-flex align-items-center">-->
+<!--		<div class="col">-->
+<!--			&lt;!&ndash; Image zone &ndash;&gt;-->
+<!--			<div class="row d-flex justify-content-center">-->
+
+
+<!--				<div class="img-container">-->
+<!--					<canvas id="canvas"></canvas>-->
+<!--					<img id="img" class="edit-img" src="{{ url_for('static', filename='images/person.png') }}" alt="" class="img-fluid" alt="Uploaded image">-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			&lt;!&ndash; Tools &ndash;&gt;-->
+<!--			<div class="row d-flex justify-content-center">-->
+<!--				<div class="col text-center">-->
+
+<!--					<div class="row">-->
+<!--						<p>-->
+<!--							Size:-->
+<!--							<input type="number" name="widthBox" id="widthInput" title="Width">-->
+<!--							×-->
+<!--							<input type="number" name="heightBox" id="heightInput" title="Height">-->
+
+<!--							<i style="color: white;">_</i>-->
+
+<!--							Position:-->
+<!--							<input type="number" name="leftBox" id="xInput" value="0" min="0" title="X">-->
+<!--							<input type="number" name="topBox" id="yInput" value="0" min="0" title="Y">-->
+
+<!--							<i style="color: white;">_</i>-->
+
+<!--							Parts:-->
+<!--							<input type="number" name="widthBox" id="xParts" title="Horizontal parts">-->
+<!--							×-->
+<!--							<input type="number" name="heightBox" id="yParts" title="Vertical parts">-->
+
+<!--							<i style="color: white;">_</i>-->
+
+<!--							Opacity: <input id="opacityInput" type="range" min="0" max="1" step="0.01" title="Outside opacity">-->
+<!--						</p>-->
+<!--					</div>-->
+<!--					<div class="row d-flex justify-content-center">-->
+<!--						<input id="fileInput" type="file" accept="image/*,image/jpeg" class="btn">-->
+<!--						<a id="saveBtn" href="#" type="button" class="btn btn-primary">Save</a>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+	<script src="{{ url_for('static', filename='js/jszip.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/filesaver.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/keyboard.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/resize.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="row" style="margin-top:50px;margin-left:10px;">
+    {% for image_name in image_names %}
+<div class="col-lg-12 col-xl-6">
+
+	 <div class="card">
+                            <div class="card-body">
+                                <div class="row m-b-30">
+                                    <div class="col-md-5 col-xxl-12">
+                                        <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
+                                            <div class="new-arrivals-img-contnent" >
+                                                <img class="img-fluid" src="{{url_for('send_original_image', filename=image_name)}}" alt="" style="width:600px;height:400px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-xxl-12">
+                                        <div class="new-arrival-content position-relative">
+                                            <center><h4><a href="">Origin</a></h4></center>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    </div>
+    <div class="col-lg-12 col-xl-6">
+	<div class="card">
+                            <div class="card-body">
+                                <div class="row m-b-30">
+                                    <div class="col-md-5 col-xxl-12">
+                                        <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
+                                            <div class="new-arrivals-img-contnent">
+                                                <img class="img-fluid" src="{{url_for('send_processed_image', filename=image_name, selected_style=selected_style)}}" alt="" style="width:600px;height:400px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-xxl-12">
+                                        <div class="new-arrival-content position-relative">
+                                           <center> <h4><a href="">Style transfer</a></h4></center>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    </div>
+		{% endfor %}
+
+</div>
+{% endblock %}

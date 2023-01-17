@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container-fluid">
+               <div class="row page-titles">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item active"><a href="javascript:void(0)">Resize</a></li>
+						<li class="breadcrumb-item"><a href="javascript:void(0)">Upload Image to resize</a></li>
+					</ol>
+                </div>
+
+        <form action="/resize" method="post" class="col s12" enctype="multipart/form-data">
+            <div class="row">
+            <div class="col-xl-3 col-lg-3">
+                <div class="card">
+                     <div class="card-header">
+                                <h4 class="card-title">Input Image</h4>
+                            </div>
+                    <div class="card-body">
+                        <div class="basic-form custom_file_input">
+                            <div class="input-group mb-3">
+											<span class="input-group-text">Upload</span>
+                                            <div class="form-file">
+                                                <input type="file" class="form-file-input form-control" name="image_upload" id="image_upload">
+                                            </div>
+                                        </div>
+                             <div class="mb-3 row">
+                                            <label class="col-sm-3 col-form-label">WWidth</label>
+                                            <div class="col-sm-9">
+                                                <input type="range" min="1" max="1000" value="50" name="width">
+                                            </div>
+                                        </div>
+
+                                    <div class="mb-3 row">
+                                            <label class="col-sm-3 col-form-label">Height</label>
+                                            <div class="col-sm-9">
+                                                <input type="range" min="1" max="1000" value="50" name="height">
+                                            </div>
+                                        </div>
+                             <button id="submit" type="submit" class="btn btn-primary btn-lg">Check</button>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+
+            <div class="col-xl-9 col-lg-9">
+
+                <div class="card">
+                    <div class="card-body">
+<img src="{{ full_filename }}" alt="image" >
+                    </div>
+                </div>
+            </div>
+                  </div>
+        </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,276 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container-fluid">
+               <div class="row page-titles">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item active"><a href="javascript:void(0)">Filter advanced</a></li>
+						<li class="breadcrumb-item"><a href="javascript:void(0)">Upload Image to rotate</a></li>
+					</ol>
+                </div>
+    <div class="row">
+    <div class="col-xl-3 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="beige-div w-clearfix" >
+        <h1 hidden>The Basics</h1>
+         <div class="div-menu"style="height:120px" hidden >
+         <a class="menu_btn" id="rotateButton"  style="color:gray" />Rotate	  <output id="rotatevalue" style="padding-left:20px">90</output><output>&#176;</output></a>
+              <div class="container">
+                 <div class="slider">
+                    <input id="rotateslider" type = "range" min="0" max="360" value="90" onchange="rotatevalue.value=value"/>
+                  </div>
+              </div>
+         </div>
+
+         <div class="div-menu" >
+          <div class="crop-container">
+          <a class="menu_btn" id="cropButton"  style="color:gray" />Crop	   </a>
+                <!--
+                 <div>
+                    <input type = "number" style="margin-left:30px" placeholder="X" id="crop_x"/>
+                    <input type = "number" style="margin-left:1px" placeholder="Y" id="crop_y"/>
+                    <input type = "number" style="margin-left:30px" placeholder="W" id="crop_w"/>
+                    <input type = "number" style="margin-left:1px" placeholder="H" id="crop_h"/>
+                  </div>
+                  -->
+              </div>
+         </div>
+
+        <div class="div-menu">
+          <div class="crop-container">
+           <a class="menu_btn" id="flipButton"  apiurl="mirror" style="color:gray" />Flipper</a>
+
+           <div style="margin-left:30px; margin-top:20px">
+             <div class="pretty p-switch p-fill">
+                  <input type="checkbox" name="switch1" id="hor-flip" />
+                             <div class="state p-success">
+                    <label>horizantal</label>
+                    </div>
+              </div>
+
+             <div class="pretty p-switch p-fill">
+                  <input style="form-check-input"type="checkbox" name="switch2" id="ver-flip"/>
+                             <div class="state p-success">
+                    <label >Vertical</label>
+                    </div>
+              </div>
+              </div>
+        </div>
+     </div>
+
+         <div class="div-menu">
+              <div class="container" hidden>
+                         <a class="menu_btn" id="mirrorButton"  style="color:gray"/>Mirror</a>
+              </div>
+         </div>
+
+         <div class="div-menu"hidden>
+              <div class="container" >
+                         <a class="menu_btn" id="inverseButton"  style="color:gray"/>Inverse</a>
+              </div>
+         </div>
+
+         <div class="div-menu"style="height:120px">
+          <a class="menu_btn" id="lumosButton"  style="color:gray" />Bright<output id="lumosvalue" style="padding-left:20px">50</output></a>
+              <div class="container">
+                 <div class="slider">
+                    <input id="lumosrslider" type = "range" min="0" max="100" value="50" onchange="lumosvalue.value=value"/>
+                  </div>
+              </div>
+         </div>
+
+         <div class="div-menu"style="height:120px">
+          <a class="menu_btn" id="contrastButton"  style="color:gray" />Contrast<output id="contrastvalue" style="padding-left:20px">50</output></a>
+              <div class="container">
+                 <div class="slider">
+                    <input id="contrastslider" type = "range" min="0" max="100" value="50" onchange="contrastvalue.value=value"/>
+                  </div>
+              </div>
+         </div>
+
+      </div>
+                <div class="morning-blue-div w-clearfix" hidden>
+
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="grayishButton"  />Grayish</a>
+        </div>
+
+       <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="embossButton"  />Emboss</a>
+        </div>
+       <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="pixelButton"  />PixelArt</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="popButton"  />BoncukArt</a>
+        </div>
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="moonButton"  />Moon</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="oldtvButton"  />90's tv</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="sketchButton"  />Sketch</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="splashButton"  />Splash</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="sepyaButton"  />Sepia</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="cartoonButton"  />Cartoon</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="oilyButton"  />Oily</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="abstractButton"  />Notional</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="balmyButton"  />Balmy</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="coldButton"  />Frostbite</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="linesButton"  />Lines</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="blushButton"  />Blush</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="glassButton"  />Glass</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="xproButton"  />XPro</a>
+        </div>
+
+        <div class="div-menu"style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="daylightButton"  />Daylight</a>
+        </div>
+
+        <div class="div-menu" style="margin-bottom:10px;">
+          <a class="btn btn-primary" id="blueishButton"  />Blueish</a>
+        </div>
+
+      </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-xl-3 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <input id="initialImage" type="file" accept="images/*" apiurl="setImage" />
+      {% if orginal!="no Image" %}
+      <img src="{{orginal}}" class="center" style="height: 200px; margin-top: 10px;width:160px;" alt="initial_image" />
+      <div>
+      <label for="initialImage" class="upload-label">
+
+      {%else%}
+      <div>
+      <label for="initialImage" class="upload-label mostCenter">
+       {%endif%}
+
+       </label>
+            </div>
+        </div>
+        </div>
+
+
+    </div>
+            <div class="col-xl-6 col-lg-6">
+        <div class="card">
+            <div class="card-body">
+
+      {% if (output | length>25)%}
+      <img src="{{output}}" alt="output_image" style="max-height: 70vh;width:66vh;" class="center" />
+      {% elif ( orginal!="no Image")%}
+
+      {%endif%}
+      <div class="most-right">
+        <h5>{{op_name}}</h5>
+      </div>
+
+                  {%if op_name=="CROP_SELECT"%}
+
+      <img src="{{orginal}}" id="canvas-img" style="max-height: 70vh;width:66vh;"/>
+                <p style=" font-size:20px">
+
+        Crop Here </p>
+      <canvas id="crop-canvas" class="center-canvas" > <br> </canvas>
+      <h4 style="flex:left"> <br> The process may take 3 to 150 seconds depending on the size of the image you uploaded.</h4>
+    {%endif%}
+            </div>
+        </div>
+          </div>
+</div>
+    <div class="sidebar-wrapper" >
+
+
+
+
+     </div>
+
+<!-- CROP CANVAS -->
+
+<!-- CROP CANVAS END-->
+
+
+    </div>
+
+    <div class="content-wrapper">
+     <div class="yellowish-div w-clearfix box">
+        <img
+          src="{{ url_for('static', filename='images/mainImage4.png') }}"
+          width="300"
+          sizes="(max-width: 479px) 57vw, (max-width: 767px) 42vw, (max-width: 991px) 43vw, 25vw"
+          alt=""
+          class="image-logo"
+        />
+      </div>
+
+
+
+      <div class="greenish-div w-clearfix" hidden>
+        <div class="div-menu"style="height:70px">
+          <a class="menu_btn" id="autoConButton" style="color:#567170" />Auto Contrast</a>
+        </div>
+        </div>
+
+
+
+
+      <div class="footer_wrapper">
+        <div class="footer-p">
+
+        </div>
+      </div>
+    </div>
+
+
+
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js" /></script>
+<script src="../static/js/fi/js-webflow.39f4ea16d.js" type="text/javascript" /> </script>
+  <script src="{{url_for('static', filename='js/fi/canvasHandler.js')}}"></script>
+  <script src="{{url_for('static', filename='js/fi/imageHandler.js')}}"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+{% endblock %}
